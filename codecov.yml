@@ -1,0 +1,21 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        # This tooling migration (openedx/public-engineering#506) changed the
+        # coverage measurement scope: chem/tests/test_all.py is now correctly
+        # omitted from [tool.coverage.run] instead of counting the test
+        # file's own (trivially self-covered) statements toward the
+        # package's coverage percentage. On this PR, that dropped the
+        # reported total from 98.23% (5 files, including the test file) to
+        # 96.33% (4 files, production code only) -- a one-time drop in the
+        # reported baseline, not a regression in production-code coverage.
+        # This threshold accommodates that one-time methodology change (with
+        # some margin) while still catching real future regressions.
+        threshold: 3%
+    patch:
+      default:
+        target: 90%
+
+comment: false
