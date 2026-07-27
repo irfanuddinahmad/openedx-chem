@@ -18,7 +18,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries",
     "Topic :: Scientific/Engineering :: Chemistry",
-    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
 ]
@@ -47,11 +46,13 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["chem*"]
+exclude = ["chem.tests", "chem.tests.*"]
 
 [tool.setuptools.exclude-package-data]
 "*" = ["tests*", "*.tests*", "spec*", "*.spec*"]
 
 [tool.coverage.run]
+data_file = "reports/.coverage"
 branch = true
 source = ["src/chem"]
 omit = [
@@ -74,6 +75,9 @@ exclude_lines = [
 
 [tool.coverage.html]
 directory = "htmlcov"
+
+[tool.coverage.xml]
+output = "reports/coverage.xml"
 
 [dependency-groups]
 # Base test packages.
@@ -107,6 +111,8 @@ package = true
 #  - GLOBAL constraints: edit edx_lint/files/common_constraints.txt
 #  - REPO-SPECIFIC constraints: edit [tool.edx_lint].uv_constraints in this file
 constraint-dependencies = [
+    "Django<6.0",
+    "elasticsearch<7.14.0",
 ]
 [tool.edx_lint]
 uv_constraints = []
