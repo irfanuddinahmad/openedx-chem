@@ -1,6 +1,6 @@
 [run]
 data_file = reports/.coverage
-source = chem
+source = src/chem
 branch = true
 
 [report]
