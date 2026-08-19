@@ -3,19 +3,7 @@ coverage:
     project:
       default:
         target: auto
-        # This tooling migration (openedx/public-engineering#506) changed the
-        # coverage measurement scope: chem/tests/test_all.py is now correctly
-        # omitted from [tool.coverage.run] instead of counting the test
-        # file's own (trivially self-covered) statements toward the
-        # package's coverage percentage. On this PR, that dropped the
-        # reported total from 98.23% (5 files, including the test file) to
-        # 96.33% (4 files, production code only) -- a one-time discontinuity
-        # in this PR's own base-vs-head comparison, not an actual regression
-        # in production code coverage. No threshold added: `target: auto`
-        # compares against each PR's own base commit, so once this PR
-        # merges, 96.33% becomes the baseline for every future comparison --
-        # there's no lingering gap to accommodate, and this status check
-        # isn't required for merging anyway.
+        # One-time coverage-measurement shift from this migration; see PR description.
     patch:
       default:
         target: 90%
