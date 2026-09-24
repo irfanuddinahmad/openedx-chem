@@ -7,7 +7,7 @@ name = "chem"
 dynamic = ["version"]
 description = "A helper library for chemistry calculations, used by the edx-platform"
 readme = "README.rst"
-license = "AGPL-3.0"
+license = "AGPL-3.0-or-later"
 license-files = ["LICENSE"]
 authors = [
     {name = "Open edX Project", email = "oscm@openedx.org"},
